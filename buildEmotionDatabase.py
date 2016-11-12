@@ -53,7 +53,15 @@ vec = getEmotionsVector(url);
 print(vec)
 
 # open the pkl file.
+UrlDict = pickle.load('faceUrls.pkl')
 
 # build structure of database
 
 # for each url, call emotions api.
+
+
+
+
+
+
+
