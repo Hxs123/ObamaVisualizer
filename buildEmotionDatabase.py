@@ -52,7 +52,6 @@ vec = getEmotionsVector(url);
 
 print(vec)
 
-
 # open the pkl file.
 
 # build structure of database
