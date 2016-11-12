@@ -1,16 +1,20 @@
-
-
 ########### Python 3.2 #############
 import http.client, urllib.request, urllib.parse, urllib.error, base64, json
 
 apiFile = open('secrets.txt', 'r')
 
-apiKey = apiFile.read()
+apiKey = apiFile.readLine()
 
 headers = {
     # Request headers
     'Ocp-Apim-Subscription-Key': apiKey,
 }
+
+# 12 Months of the year
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+# First year to get data from
+year = 2009
 
 params = urllib.parse.urlencode({
     # Request parameters
