@@ -3,7 +3,7 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64, json
 
 apiFile = open('secrets.txt', 'r')
 
-apiKey = apiFile.readline()
+apiKey = apiFile.readline().replace("\n", "")
 
 headers = {
     # Request headers
@@ -13,18 +13,24 @@ headers = {
 # 12 Months of the year
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-# Current month (last month with data)
+# Final month (last month with data)
 finalMonth = months[11]
 
 # First year to get data from
-year = 2009
+currentYear = 2009
 
-# Last month to get data from
+# Last month to get data from (inclusive)
 finalYear = 2016
 
+# Person to be looked up
 personQuery = 'Obama'
 
-#queryString = 
+# Index of the first month to query
+monthIndex = 0 # January
+
+# Search string to be built out of the person + month + year
+queryString = personQuery + " " + months[monthIndex] + " " + str(currentYear)  
+        
 params = urllib.parse.urlencode({
     # Request parameters
     'q': 'Obama January 2009',
@@ -50,3 +56,5 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
 ####################################
+
+
