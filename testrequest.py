@@ -3,7 +3,7 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64, json
 
 apiFile = open('secrets.txt', 'r')
 
-apiKey = apiFile.readLine()
+apiKey = apiFile.readline()
 
 headers = {
     # Request headers
@@ -13,9 +13,18 @@ headers = {
 # 12 Months of the year
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+# Current month (last month with data)
+finalMonth = months[11]
+
 # First year to get data from
 year = 2009
 
+# Last month to get data from
+finalYear = 2016
+
+personQuery = 'Obama'
+
+#queryString = 
 params = urllib.parse.urlencode({
     # Request parameters
     'q': 'Obama January 2009',
