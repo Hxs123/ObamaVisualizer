@@ -42,6 +42,7 @@ def getMMYYYY(monthIndex, year):
 
     return monthString + "/" + str(year) 
 
+
 # Iterates over the time range and adds urls for each month
 while (currentYear <= finalYear):
     if currentYear == finalYear and months[monthIndex] == finalMonth:
@@ -81,13 +82,13 @@ while (currentYear <= finalYear):
         print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
     monthIndex += 1
-    if monthIndex >= 11:
+    if monthIndex > 11:
         monthIndex = 0
         currentYear += 1
 
 pickle.dump(results, open("faceUrls.pkl", "wb"))
 
-#print(json.dumps(results))
+print(json.dumps(results))
 
 ####################################
 
